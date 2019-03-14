@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RxBinding_Example' do
+  pod 'RxBinding', :path => '../'
+
+  target 'RxBinding_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
