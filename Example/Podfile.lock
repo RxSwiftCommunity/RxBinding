@@ -1,0 +1,16 @@
+PODS:
+  - RxBinding (0.1.0)
+
+DEPENDENCIES:
+  - RxBinding (from `../`)
+
+EXTERNAL SOURCES:
+  RxBinding:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RxBinding: 6696c2ba343481d892192ccd568209c165aa2039
+
+PODFILE CHECKSUM: c8c15fe260b49f399996362a83847d40c65c839a
+
+COCOAPODS: 1.6.1
