@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxBinding
 
 class ViewController: UIViewController {
     
+    private let label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let viewModel: ViewModel
+    private let disposeBag = DisposeBag()
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -25,6 +35,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        view.addSubview(label)
+        createConstraints()
+        
+        (viewModel.text ~> label.rx.text).disposed(by: disposeBag)
+    }
+    
+    private func createConstraints() {
+        label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
 }

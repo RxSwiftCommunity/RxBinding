@@ -23,3 +23,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import RxSwift
+import RxCocoa
+
+infix operator ~> : DefaultPrecedence
+
+extension ObservableType {
+    
+    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O: ObserverType, O.E == Self.E {
+        return observable.bind(to: observer)
+    }
+    
+    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, O.E == Self.E?  {
+        return observable.bind(to: observer)
+    }
+    
+    public static func ~> (observable: Self, relay: PublishRelay<Self.E>) -> Disposable {
+        return observable.bind(to: relay)
+    }
+    
+    public static func ~> (observable: Self, relay: PublishRelay<Self.E?>) -> Disposable {
+        return observable.bind(to: relay)
+    }
+    
+    public static func ~> (observable: Self, relay: BehaviorRelay<Self.E>) -> Disposable {
+        return observable.bind(to: relay)
+    }
+    
+    public static func ~> (observable: Self, relay: BehaviorRelay<Self.E?>) -> Disposable {
+        return observable.bind(to: relay)
+    }
+    
+    public static func ~> <R>(observable: Self, binder: (Self) -> R) -> R {
+        return observable.bind(to: binder)
+    }
+    
+    public static func ~> (observable: Self, binder: (Self) -> Disposable) -> Disposable {
+        return observable.bind(to: binder)
+    }
+    
+}
