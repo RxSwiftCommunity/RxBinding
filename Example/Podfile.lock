@@ -1,16 +1,28 @@
 PODS:
-  - RxBinding (0.1.0)
+  - RxBinding (0.1.0):
+    - RxCocoa (~> 4.5)
+    - RxSwift (~> 4.5)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
 
 DEPENDENCIES:
   - RxBinding (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxSwift
 
 EXTERNAL SOURCES:
   RxBinding:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RxBinding: 6696c2ba343481d892192ccd568209c165aa2039
+  RxBinding: b1fd11fa172f82c8f68b3070a48e0186514293f8
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: c8c15fe260b49f399996362a83847d40c65c839a
+PODFILE CHECKSUM: 4f2ab357a7ce9af1d65a841c09c2491240cedc6d
 
 COCOAPODS: 1.6.1
