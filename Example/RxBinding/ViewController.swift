@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         view.addSubview(label)
         createConstraints()
         
-        (viewModel.text ~> label.rx.text).disposed(by: disposeBag)
+        viewModel.text ~> label.rx.text ~ disposeBag
     }
     
     private func createConstraints() {
