@@ -11,8 +11,15 @@ import RxCocoa
 
 class ViewModel {
     
-    var text: Observable<String> {
-        return Observable.just("Test String")
+    let text = BehaviorRelay<String?>(value: nil)
+    
+    var uppercaseText: Observable<String?> {
+        return text.map {
+            guard let text = $0 else {
+                return nil
+            }
+            return text.uppercased()
+        }
     }
     
 }

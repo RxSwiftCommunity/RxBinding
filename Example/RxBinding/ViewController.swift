@@ -13,6 +13,17 @@ import RxBinding
 
 class ViewController: UIViewController {
     
+    private let textFeild: UITextField = {
+        let textField = UITextField()
+        textField.textAlignment = .center
+        textField.placeholder = "Input text here."
+        textField.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        textField.layer.cornerRadius = 5
+        textField.layer.masksToBounds = true
+        textField.becomeFirstResponder()
+        return textField
+    }()
+    
     private let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -35,16 +46,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        view.addSubview(textFeild)
         view.addSubview(label)
         createConstraints()
         
-        viewModel.text ~> label.rx.text ~ disposeBag
+        viewModel.text <~> textFeild.rx.text ~ disposeBag
+        viewModel.uppercaseText ~> label.rx.text ~ disposeBag
     }
     
     private func createConstraints() {
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
+        
+        textFeild.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(15)
+            $0.right.equalToSuperview().offset(-15)
+            $0.top.equalToSuperview().offset(60)
+            $0.height.equalTo(50)
         }
+        
+        label.snp.makeConstraints {
+            $0.centerX.equalTo(textFeild)
+            $0.top.equalTo(textFeild.snp.bottom).offset(10)
+        }
+
     }
     
 }
