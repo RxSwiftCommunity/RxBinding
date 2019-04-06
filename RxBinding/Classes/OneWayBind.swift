@@ -63,3 +63,35 @@ extension ObservableType {
     }
     
 }
+
+extension ObservableType {
+    
+    static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O: ObserverType, O.E == Self.E {
+        return observers.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O : ObserverType, O.E == Self.E?  {
+        return observers.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> (observable: Self, relays: [PublishRelay<Self.E>]) -> [Disposable] {
+        return relays.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> (observable: Self, relays: [PublishRelay<Self.E?>]) -> [Disposable] {
+        return relays.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> (observable: Self, relays: [BehaviorRelay<Self.E>]) -> [Disposable] {
+        return relays.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> (observable: Self, relays: [BehaviorRelay<Self.E?>]) -> [Disposable] {
+        return relays.map { observable.bind(to: $0) }
+    }
+    
+    static func ~> <R>(observable: Self, binders: [(Self) -> R]) -> [R] {
+        return binders.map { observable.bind(to: $0) }
+    }
+    
+}

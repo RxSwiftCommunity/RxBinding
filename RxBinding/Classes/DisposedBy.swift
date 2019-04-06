@@ -40,3 +40,11 @@ extension DisposeBag {
     }
     
 }
+
+extension Array where Element == Disposable {
+    
+    static func ~ (disposables: Array, disposeBag: DisposeBag) {
+        disposables.forEach { $0.disposed(by: disposeBag) }
+    }
+    
+}
