@@ -1,9 +1,10 @@
 # RxBinding
 
-[![CI Status](https://img.shields.io/travis/lm2343635/RxBinding.svg?style=flat)](https://travis-ci.org/lm2343635/RxBinding)
+[![CI Status](https://img.shields.io/travis/RxSwiftCommunity/RxBinding.svg?style=flat)](https://travis-ci.org/RxSwiftCommunity/RxBinding)
 [![Version](https://img.shields.io/cocoapods/v/RxBinding.svg?style=flat)](https://cocoapods.org/pods/RxBinding)
 [![License](https://img.shields.io/cocoapods/l/RxBinding.svg?style=flat)](https://cocoapods.org/pods/RxBinding)
 [![Platform](https://img.shields.io/cocoapods/p/RxBinding.svg?style=flat)](https://cocoapods.org/pods/RxBinding)
+[![swift](https://img.shields.io/badge/swift-5.0-orange.svg)](https://github.com/RxSwiftCommunity/RxBinding/releases)
 
 RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift, to replace the `bind(to:)` and `disposed(by:)` method in RxSwift.
 
