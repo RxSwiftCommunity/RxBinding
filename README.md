@@ -22,6 +22,12 @@ it, simply add the following line to your Podfile:
 pod 'RxBinding'
 ```
 
+If you want to use the operators in the all files of your project, judt import with `@_expoerted`.
+
+```Swift
+@_exported import RxBinding
+```
+
 #### Usage of `~>`
 
 The type of `text` is `Observable<String?>` and the type of `label.rx.text` is `Binder<String?>`.
