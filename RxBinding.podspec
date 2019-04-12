@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
 RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift.
                        DESC
 
-  s.homepage         = 'https://github.com/lm2343635/RxBinding'
+  s.homepage         = 'https://github.com/RxSwiftCommunity/RxBinding'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lm2343635' => 'lm2343635@126.com' }
-  s.source           = { :git => 'https://github.com/lm2343635/RxBinding.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => s.version.to_s }
   s.social_media_url = 'https://www.fczm.pw'
 
   s.ios.deployment_target = '8.0'
