@@ -24,11 +24,10 @@ class ViewController: UIViewController {
         return textField
     }()
     
-    private let label: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
+    private let label = UILabel()
+    
+    private let characterCountLabel1 = UILabel()
+    private let characterCountLabel2 = UILabel()
     
     private let viewModel: ViewModel
     private let disposeBag = DisposeBag()
@@ -48,10 +47,13 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(textFeild)
         view.addSubview(label)
+        view.addSubview(characterCountLabel1)
+        view.addSubview(characterCountLabel2)
         createConstraints()
         
         viewModel.text <~> textFeild.rx.text ~ disposeBag
         viewModel.uppercaseText ~> label.rx.text ~ disposeBag
+        viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text } ~ disposeBag
     }
     
     private func createConstraints() {
@@ -64,8 +66,18 @@ class ViewController: UIViewController {
         }
         
         label.snp.makeConstraints {
-            $0.centerX.equalTo(textFeild)
+            $0.centerX.equalToSuperview()
             $0.top.equalTo(textFeild.snp.bottom).offset(10)
+        }
+        
+        characterCountLabel1.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(label.snp.bottom).offset(10)
+        }
+        
+        characterCountLabel2.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(characterCountLabel1.snp.bottom).offset(10)
         }
 
     }

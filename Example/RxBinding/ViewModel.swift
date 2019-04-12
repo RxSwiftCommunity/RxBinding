@@ -22,4 +22,13 @@ class ViewModel {
         }
     }
     
+    var charactersCount: Observable<String?> {
+        return text.map {
+            guard let text = $0 else {
+                return "0"
+            }
+            return String(text.count)
+        }
+    }
+    
 }
