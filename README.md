@@ -24,17 +24,23 @@ pod 'RxBinding'
 
 #### Usage of `~>`
 
-The type of `uppercaseText` is `Observable<String?>` and the type of `label.rx.text` is `Binder<String?>`.
+The type of `text` is `Observable<String?>` and the type of `label.rx.text` is `Binder<String?>`.
 RxSwfit provides the following method for the one way data binding between them.
 
 ```Swift
-viewModel.uppercaseText.bind(to: label.rx.text).disposed(by: disposeBag)
+viewModel.text.bind(to: label.rx.text).disposed(by: disposeBag)
 ```
 
-With the `~>`(`bind(to:)`) and `~`(`disposed(by:)`) in RxBinding, we can do the same thing with the following simple code.
+With the `~>` (`bind(to:)`) and `~` (`disposed(by:)`) in RxBinding, we can do the same thing with the following simple code.
 
 ```Swift
-viewModel.uppercaseText ~> label.rx.text ~ disposeBag
+viewModel.text ~> label.rx.text ~ disposeBag
+```
+
+Bind an observable to multiple binders.
+
+```Swift
+viewModel.text ~> [label1, label2].map { $0.rx.text } ~ disposeBag
 ```
 
 #### Usage of `<~>`
@@ -47,7 +53,7 @@ viewModel.text.bind(to: textFeild.rx.text).disposed(by: disposeBag)
 textFeild.rx.text.bind(to: viewModel.text).disposed(by: disposeBag)
 ```
 
-With the `<~>`, a simple two way bind operator, and `~`(`disposed(by:)`) in RxBinding, we can do the same thing with the following simple code.
+With the `<~>`, a simple two way bind operator, and `~` (`disposed(by:)`) in RxBinding, we can do the same thing with the following simple code.
 
 ```Swift
 viewModel.text <~> textFeild.rx.text ~ disposeBag
