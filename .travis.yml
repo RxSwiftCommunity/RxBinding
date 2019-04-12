@@ -12,4 +12,3 @@ before_install:
 
 script:
 - set -o pipefail && xcodebuild -workspace Example/RxBinding.xcworkspace -scheme RxBinding-Example -sdk iphonesimulator build CODE_SIGNING_REQUIRED=NO | xcpretty -c
-- pod lib lint
