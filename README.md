@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxBinding.svg?style=flat)](https://cocoapods.org/pods/RxBinding)
 [![swift](https://img.shields.io/badge/swift-5.0-orange.svg)](https://github.com/RxSwiftCommunity/RxBinding/releases)
 
-RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift, to replace the `bind(to:)` and `disposed(by:)` method in RxSwift.
+RxBinding provodes `~>`, `<~>` and `~` operators for data binding using RxSwift, to replace the `bind(to:)` and `disposed(by:)` method in RxSwift.
 
 RxBinding is inspired by the following operators.
 
