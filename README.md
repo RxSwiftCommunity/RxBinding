@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxBinding.svg?style=flat)](https://cocoapods.org/pods/RxBinding)
 [![swift](https://img.shields.io/badge/swift-5.0-orange.svg)](https://github.com/RxSwiftCommunity/RxBinding/releases)
 
-RxBinding provodes `~>`, `<~>` and `~` operators for data binding using RxSwift, to replace the `bind(to:)` and `disposed(by:)` method in RxSwift.
+RxBinding provides `~>`, `<~>` and `~` operators for data binding using RxSwift, to replace the `bind(to:)` and `disposed(by:)` method in RxSwift.
 
 RxBinding is inspired by the following operators.
 
@@ -22,7 +22,7 @@ it, simply add the following line to your Podfile:
 pod 'RxBinding'
 ```
 
-If you want to use the operators in the all files of your project, judt import with `@_expoerted`.
+If you want to use the operators in the all files of your project, just import with `@_expoerted`.
 
 ```Swift
 @_exported import RxBinding
@@ -43,7 +43,7 @@ With the `~>` (`bind(to:)`) and `~` (`disposed(by:)`) in RxBinding, we can do th
 viewModel.text ~> label.rx.text ~ disposeBag
 ```
 
-Bind an observable to multiple binders.
+Bind an observable object to multiple binders.
 
 ```Swift
 viewModel.text ~> [label1, label2].map { $0.rx.text } ~ disposeBag
