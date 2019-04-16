@@ -73,7 +73,7 @@ viewModel.text <~> textFeild.rx.text ~ disposeBag
 viewModel.text ~> label.rx.text
 ```
 
-If anyone has good idea, please contact me here https://github.com/RxSwiftCommunity/RxBinding/issues/1 or create a PR.
+If anyone has a good idea about this, please contact me here https://github.com/RxSwiftCommunity/RxBinding/issues/1 or create a PR.
 Thanks.
 
 ## Example
