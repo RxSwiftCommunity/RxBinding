@@ -65,6 +65,17 @@ With the `<~>`, a simple two way bind operator, and `~` (`disposed(by:)`) in RxB
 viewModel.text <~> textFeild.rx.text ~ disposeBag
 ```
 
+## NEED YOUR HELP
+
+**I am considering how to remove the operator ~ after the Binder or the ControlEvent property.**
+
+```Swift
+viewModel.text ~> label.rx.text
+```
+
+If anyone has good idea, please contact me here https://github.com/RxSwiftCommunity/RxBinding/issues/1 or create a PR.
+Thanks.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
