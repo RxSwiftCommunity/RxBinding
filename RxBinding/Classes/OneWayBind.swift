@@ -28,6 +28,7 @@ import RxCocoa
 
 infix operator ~> : DefaultPrecedence
 
+// Bind to the observer, the relay or the binder.
 extension ObservableType {
     
     public static func ~> <O>(observable: Self, observer: O) -> Disposable where O: ObserverType, O.E == Self.E {
@@ -64,6 +65,7 @@ extension ObservableType {
     
 }
 
+// Bind to the array of observer, relay or binder.
 extension ObservableType {
     
     public static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O: ObserverType, O.E == Self.E {
