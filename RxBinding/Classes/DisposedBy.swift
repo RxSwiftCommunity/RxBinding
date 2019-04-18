@@ -39,11 +39,20 @@ extension DisposeBag {
         disposable.disposed(by: disposeBag)
     }
     
+    @discardableResult public static func ~ (disposeBag: DisposeBag, disposable: Disposable) -> DisposeBag {
+        disposable.disposed(by: disposeBag)
+        return disposeBag
+    }
+    
 }
 
 extension Array where Element == Disposable {
     
     public static func ~ (disposables: Array, disposeBag: DisposeBag) {
+        disposables.forEach { $0.disposed(by: disposeBag) }
+    }
+    
+    public static func ~ (disposeBag: DisposeBag, disposables: Array) {
         disposables.forEach { $0.disposed(by: disposeBag) }
     }
     
