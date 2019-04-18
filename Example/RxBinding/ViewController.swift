@@ -51,9 +51,10 @@ class ViewController: UIViewController {
         view.addSubview(characterCountLabel2)
         createConstraints()
         
-        viewModel.text <~> textFeild.rx.text ~ disposeBag
-        viewModel.uppercaseText ~> label.rx.text ~ disposeBag
-        viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text } ~ disposeBag
+        viewModel.text <~> textFeild.rx.text ~
+        viewModel.uppercaseText ~> label.rx.text ~
+        viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+            ~ disposeBag
 
         /** The demo to use the ~> operator for drivers.
         viewModel.uppercaseText.asDriver(onErrorJustReturn: "") ~> label.rx.text ~ disposeBag

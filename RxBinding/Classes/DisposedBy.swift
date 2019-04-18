@@ -47,4 +47,16 @@ extension Array where Element == Disposable {
         disposables.forEach { $0.disposed(by: disposeBag) }
     }
     
+    public static func ~ (disposables: Array, disposable: Disposable) -> [Disposable] {
+        return disposables + [disposable]
+    }
+    
+    public static func ~ (disposables1: Array, disposables2: Array) -> [Disposable] {
+        return disposables1 + disposables2
+    }
+    
+}
+
+public func ~ (disposable1: Disposable, disposable2: Disposable) -> [Disposable] {
+    return Array(arrayLiteral: disposable1, disposable2)
 }
