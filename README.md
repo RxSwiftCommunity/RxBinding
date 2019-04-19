@@ -65,6 +65,25 @@ With the `<~>`, a simple two way bind operator, and `~` (`disposed(by:)`) in RxB
 viewModel.text <~> textFeild.rx.text ~ disposeBag
 ```
 
+#### Multiple Bindings
+
+RxBinding supports using a single `disposeBag` for multiple binding operators like this:
+
+```Swift
+disposeBag
+  ~ viewModel.text <~> textFeild.rx.text
+  ~ viewModel.uppercaseText ~> label.rx.text
+  ~ viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+```
+or this:
+
+```Swift
+viewModel.text <~> textFeild.rx.text ~
+viewModel.uppercaseText ~> label.rx.text ~
+viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+  ~ disposeBag
+```
+
 ## NEED YOUR HELP
 
 **I am considering how to remove the operator ~ after the Binder or the ControlEvent property.**
