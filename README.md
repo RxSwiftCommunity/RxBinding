@@ -70,10 +70,11 @@ viewModel.text <~> textFeild.rx.text ~ disposeBag
 RxBinding supports using a single `disposeBag` for multiple binding operators like this:
 
 ```Swift
-disposeBag
-  ~ viewModel.text <~> textFeild.rx.text
-  ~ viewModel.uppercaseText ~> label.rx.text
-  ~ viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+disposeBag ~ [
+    viewModel.text <~> textFeild.rx.text,
+    viewModel.uppercaseText ~> label.rx.text,
+    viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+]
 ```
 or this:
 
