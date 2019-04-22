@@ -51,10 +51,18 @@ class ViewController: UIViewController {
         view.addSubview(characterCountLabel2)
         createConstraints()
         
+        disposeBag ~ [
+            viewModel.text <~> textFeild.rx.text,
+            viewModel.uppercaseText ~> label.rx.text,
+            viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+        ]
+        
+        /**
         disposeBag
             ~ viewModel.text <~> textFeild.rx.text
             ~ viewModel.uppercaseText ~> label.rx.text
             ~ viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
+        */
         
         /**
         viewModel.text <~> textFeild.rx.text ~

@@ -39,9 +39,30 @@ extension DisposeBag {
         disposable.disposed(by: disposeBag)
     }
     
-    @discardableResult public static func ~ (disposeBag: DisposeBag, disposable: Disposable) -> DisposeBag {
+    @discardableResult
+    public static func ~ (disposeBag: DisposeBag, disposable: Disposable) -> DisposeBag {
         disposable.disposed(by: disposeBag)
         return disposeBag
+    }
+    
+    public static func ~ (disposeBag: DisposeBag, disposables: [Any]) {
+        disposables.map { obj -> [Disposable] in
+            switch obj.self {
+            case is Disposable:
+                return [obj as! Disposable]
+            case is [Disposable]:
+                return obj as! [Disposable]
+            default:
+                return []
+            }
+        }.reduce([]) { $0 + $1 }.forEach {
+            print($0)
+            $0.disposed(by: disposeBag)
+        }
+    }
+    
+    public static func ~ (disposables: [Any], disposeBag: DisposeBag) {
+        disposeBag ~ disposables
     }
     
 }
