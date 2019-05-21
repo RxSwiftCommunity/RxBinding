@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RxBinding'
-  s.version          = '0.3'
+  s.version          = '0.3.1'
   s.summary          = 'Simple data binding operators for RxSwift.'
 
 # This description is used to generate tags and improve search results.

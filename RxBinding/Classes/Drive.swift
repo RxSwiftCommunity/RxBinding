@@ -31,23 +31,23 @@ infix operator ~> : DefaultPrecedence
 // Drive the observer, the relay or the binder.
 extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
     
-    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, Self.E == O.E {
+    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, Self.Element == O.Element {
         return observable.drive(observer)
     }
     
-    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, O.E == Self.E? {
+    public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, O.Element == Self.Element? {
         return observable.drive(observer)
     }
 
-    public static func drive(observable: Self, relay: RxCocoa.BehaviorRelay<Self.E>) -> Disposable {
+    public static func drive(observable: Self, relay: RxCocoa.BehaviorRelay<Self.Element>) -> Disposable {
         return observable.drive(relay)
     }
 
-    public static func drive(observable: Self, relay: RxCocoa.BehaviorRelay<Self.E?>) -> Disposable {
+    public static func drive(observable: Self, relay: RxCocoa.BehaviorRelay<Self.Element?>) -> Disposable {
         return observable.drive(relay)
     }
 
-    public static func drive<R>(observable: Self, transformation: (RxSwift.Observable<Self.E>) -> R) -> R {
+    public static func drive<R>(observable: Self, transformation: (RxSwift.Observable<Self.Element>) -> R) -> R {
         return observable.drive(transformation)
     }
 
@@ -56,23 +56,23 @@ extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.Dr
 // Drive the array of observer, relay or binder.
 extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
     
-    public static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O : ObserverType, Self.E == O.E {
+    public static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O : ObserverType, Self.Element == O.Element {
         return observers.map { observable.drive($0) }
     }
     
-    public static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O : ObserverType, O.E == Self.E? {
+    public static func ~> <O>(observable: Self, observers: [O]) -> [Disposable] where O : ObserverType, O.Element == Self.Element? {
         return observers.map { observable.drive($0) }
     }
     
-    public static func drive(observable: Self, relays: [RxCocoa.BehaviorRelay<Self.E>]) -> [Disposable] {
+    public static func drive(observable: Self, relays: [RxCocoa.BehaviorRelay<Self.Element>]) -> [Disposable] {
         return relays.map { observable.drive($0) }
     }
     
-    public static func drive(observable: Self, relays: [RxCocoa.BehaviorRelay<Self.E?>]) -> [Disposable] {
+    public static func drive(observable: Self, relays: [RxCocoa.BehaviorRelay<Self.Element?>]) -> [Disposable] {
         return relays.map { observable.drive($0) }
     }
     
-    public static func drive<R>(observable: Self, transformations: [(RxSwift.Observable<Self.E>) -> R]) -> [R] {
+    public static func drive<R>(observable: Self, transformations: [(RxSwift.Observable<Self.Element>) -> R]) -> [R] {
         return transformations.map { observable.drive($0) }
     }
     

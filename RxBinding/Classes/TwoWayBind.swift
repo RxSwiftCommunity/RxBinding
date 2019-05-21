@@ -89,8 +89,8 @@ extension BehaviorRelay where Element == String {
 
 extension BehaviorRelay {
     
-    func twoWayBind(to property: ControlProperty<E>) -> Disposable {
-        if E.self == String.self {
+    func twoWayBind(to property: ControlProperty<Element>) -> Disposable {
+        if Element.self == String.self {
             #if DEBUG
             fatalError("It is ok to delete this message, but this is here to warn that you are maybe trying to bind to some `rx.text` property directly to relay.\n" +
                 "That will usually work ok, but for some languages that use IME, that simplistic method could cause unexpected issues because it will return intermediate results while text is being inputed.\n" +
