@@ -31,6 +31,6 @@ RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift.
 
   s.source_files = 'RxBinding/Classes/**/*'
   
-  s.dependency 'RxSwift', '~> 4.5'
-  s.dependency 'RxCocoa', '~> 4.5'
+  s.dependency 'RxSwift', '~> 5'
+  s.dependency 'RxCocoa', '~> 5'
 end
