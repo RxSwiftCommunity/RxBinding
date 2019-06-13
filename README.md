@@ -22,7 +22,7 @@ it, simply add the following line to your Podfile:
 pod 'RxBinding'
 ```
 
-If you want to use the operators in the all files of your project, just import with `@_expoerted`.
+With `@_expoerted import`, the operators can be used in the all file of the project.
 
 ```Swift
 @_exported import RxBinding
@@ -37,7 +37,7 @@ RxSwfit provides the following method for the one way data binding between them.
 viewModel.text.bind(to: label.rx.text).disposed(by: disposeBag)
 ```
 
-With the `~>` (`bind(to:)`) and `~` (`disposed(by:)`) in RxBinding, we can do the same thing with the following simple code.
+With the operators `~>` (`bind(to:)`) and `~` (`disposed(by:)`) in RxBinding, we can bind with the following simple code.
 
 ```Swift
 viewModel.text ~> label.rx.text ~ disposeBag
