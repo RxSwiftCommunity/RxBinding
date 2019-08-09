@@ -96,6 +96,18 @@ viewModel.text ~> label.rx.text
 If anyone has a good idea about this, please contact me here https://github.com/RxSwiftCommunity/RxBinding/issues/1 or create a PR.
 Thanks.
 
+The operator `~>` is equal to `bind(to:)`.
+
+```swift 
+viewModel.text ~> label.rx.text
+``` 
+is euqals to
+```swift 
+viewModel.text.bind(to: label.rx.text)
+````
+
+I mean how to combine the method `disposed(by:)` into the operator `~>`.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
