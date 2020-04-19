@@ -46,7 +46,7 @@ viewModel.text ~> label.rx.text ~ disposeBag
 Bind an observable object to multiple binders.
 
 ```Swift
-viewModel.text ~> [label1, label2].map { go0.rx.text } ~ disposeBag
+viewModel.text ~> [label1, label2].map { $0.rx.text } ~ disposeBag
 ```
 
 #### Usage of `<~>`
