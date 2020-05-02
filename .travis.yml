@@ -8,7 +8,7 @@ language: objective-c
 before_install:
 - gem install cocoapods
 - pod repo update
-- pod install --project-directory=Example
+- pod install --project-directory=Example/RxBinding\ Example
 
 script:
-- set -o pipefail && xcodebuild -workspace Example/RxBinding.xcworkspace -scheme RxBinding-Example -sdk iphonesimulator build CODE_SIGNING_REQUIRED=NO | xcpretty -c
+- set -o pipefail && xcodebuild -workspace Example/RxBinding\ Example/RxBinding\ Example.xcworkspace -scheme RxBinding\ Example -sdk iphonesimulator build CODE_SIGNING_REQUIRED=NO | xcpretty -c
