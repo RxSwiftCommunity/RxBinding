@@ -34,7 +34,24 @@ Carthage/Build
 # Note: if you ignore the Pods directory, make sure to uncomment
 # `pod install` in .travis.yml
 #
-# Pods/
+Pods/
 
 # IDEA
 .idea/
+
+.build
+DerivedData
+/.previous-build
+xcuserdata
+.DS_Store
+*~
+\#*
+.\#*
+.*.sw[nop]
+*.xcscmblueprint
+/default.profraw
+Utilities/Docker/*.tar.gz
+.swiftpm
+Package.resolved
+/build
+*.pyc

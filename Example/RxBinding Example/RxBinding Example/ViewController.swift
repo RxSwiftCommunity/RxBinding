@@ -12,7 +12,7 @@ import RxSwift
 import RxBinding
 
 class ViewController: UIViewController {
-    
+
     private let textFeild: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
@@ -23,47 +23,47 @@ class ViewController: UIViewController {
         textField.becomeFirstResponder()
         return textField
     }()
-    
+
     private let label = UILabel()
-    
+
     private let characterCountLabel1 = UILabel()
     private let characterCountLabel2 = UILabel()
-    
+
     private let viewModel: ViewModel
     private let disposeBag = DisposeBag()
-    
+
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .white
         view.addSubview(textFeild)
         view.addSubview(label)
         view.addSubview(characterCountLabel1)
         view.addSubview(characterCountLabel2)
         createConstraints()
-        
+
         disposeBag ~ [
             viewModel.text <~> textFeild.rx.text,
             viewModel.uppercaseText ~> label.rx.text,
             viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
         ]
-        
+
         /**
         disposeBag
             ~ viewModel.text <~> textFeild.rx.text
             ~ viewModel.uppercaseText ~> label.rx.text
             ~ viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text }
         */
-        
+
         /**
         viewModel.text <~> textFeild.rx.text ~
         viewModel.uppercaseText ~> label.rx.text ~
@@ -76,31 +76,31 @@ class ViewController: UIViewController {
         viewModel.charactersCount.asDriver(onErrorJustReturn: "0") ~> [characterCountLabel1, characterCountLabel2].map { $0.rx.text } ~ disposeBag
         */
     }
-    
+
     private func createConstraints() {
-        
+
         textFeild.snp.makeConstraints {
             $0.left.equalToSuperview().offset(15)
             $0.right.equalToSuperview().offset(-15)
             $0.top.equalToSuperview().offset(60)
             $0.height.equalTo(50)
         }
-        
+
         label.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(textFeild.snp.bottom).offset(10)
         }
-        
+
         characterCountLabel1.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(label.snp.bottom).offset(10)
         }
-        
+
         characterCountLabel2.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(characterCountLabel1.snp.bottom).offset(10)
         }
 
     }
-    
+
 }

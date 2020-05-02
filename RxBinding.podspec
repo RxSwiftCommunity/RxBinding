@@ -28,9 +28,10 @@ RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift.
   s.social_media_url = 'https://www.fczm.pw'
 
   s.ios.deployment_target = '8.0'
+  s.swift_version = '5.1'
 
-  s.source_files = 'RxBinding/Classes/**/*'
+  s.source_files = 'Sources/RxBinding/**/*'
   
-  s.dependency 'RxSwift', '~> 5'
-  s.dependency 'RxCocoa', '~> 5'
+  s.dependency 'RxSwift', '>= 5.0.0', "< 6.0.0"
+  s.dependency 'RxCocoa', '>= 5.0.0', "< 6.0.0"
 end

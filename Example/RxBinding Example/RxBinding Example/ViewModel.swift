@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 class ViewModel {
-    
+
     let text = BehaviorRelay<String?>(value: nil)
-    
+
     var uppercaseText: Observable<String?> {
         return text.map {
             guard let text = $0 else {
@@ -21,7 +21,7 @@ class ViewModel {
             return text.uppercased()
         }
     }
-    
+
     var charactersCount: Observable<String?> {
         return text.map {
             guard let text = $0 else {
@@ -30,5 +30,5 @@ class ViewModel {
             return String(text.count)
         }
     }
-    
+
 }

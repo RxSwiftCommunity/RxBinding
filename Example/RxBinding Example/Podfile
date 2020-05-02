@@ -1,0 +1,7 @@
+use_frameworks!
+platform :ios, '10.0'
+
+target 'RxBinding Example' do
+  pod 'RxBinding', :path => '../../'
+  pod 'SnapKit'
+end
