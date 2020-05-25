@@ -25,7 +25,7 @@ RxBinding provodes '~>', '<~>' and '~' operators for data binding using RxSwift.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lm2343635' => 'lm2343635@126.com' }
   s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => s.version.to_s }
-  s.social_media_url = 'https://www.fczm.pw'
+  s.social_media_url = 'https://fczm.site'
 
   s.ios.deployment_target = '8.0'
   s.swift_version = '5.1'
