@@ -29,7 +29,7 @@ import RxCocoa
 infix operator ~> : DefaultPrecedence
 
 // Drive the observer, the relay or the binder.
-extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
+extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy {
     
     public static func ~> <O>(observable: Self, observer: O) -> Disposable where O : ObserverType, Self.Element == O.Element {
         return observable.drive(observer)
