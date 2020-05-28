@@ -85,6 +85,11 @@ viewModel.charactersCount ~> [characterCountLabel1, characterCountLabel2].map { 
   ~ disposeBag
 ```
 
+## RxCocoa
+
+RxBinding also supports `Driver` and `Signal` of the RxCocoa module.
+You can use `~>` operator to replace the `drive()` and `emit(to:)` method.
+
 ## NEED YOUR HELP
 
 **I am considering how to remove the operator ~ after the Binder or the ControlEvent property.**
